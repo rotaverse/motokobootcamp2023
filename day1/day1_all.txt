@@ -1,0 +1,94 @@
+
+Questions
+1. --------------
+4GB
+2. --------------
+
+actor {
+  var counter = 0;
+  public func increment_counter() : async Nat {
+    counter += 1;
+    return counter;
+  };
+}
+
+3. --------------
+
+actor {
+  var message : Text = "test";
+
+  public query func change_message(new_message : Text) : async Text {
+    message := new_message;
+    return (message);
+  };
+  
+  public query func see_message() : async Text {
+    return(message);
+  };
+}
+
+4. ------
+async cannot be removed.   false
+
+
+
+
+CODING CHALLENGES
+
+actor test{
+  let n1 : Nat = 0;
+  let n2 : Nat = 0;
+  var result : Nat = 0;
+  stable var counter = 0;
+
+//Write a function multiply that takes two natural numbers and returns the product.
+// multiply(n : Nat, m : Nat) -> async Nat
+public query func multiply(n1: Nat, n2: Nat) : async Nat {
+  result := n1 * n2;
+  return(result);
+};
+
+//Write a function volume that takes a natural number n and returns the volumte of a cube with side length n.
+// volume(n : Nat) -> async Nat
+public query func volume(n1: Nat) : async Nat {
+  result := n1 * n1 * n1;
+  return(result);
+};
+
+//Write a function hours_to_minutes that takes a number of hours n and returns the number of minutes.
+// hours_to_minutes(n : Nat) -> async Nat
+public query func hours_to_minutes (n1: Nat) : async Nat {
+  result := 60 * n1;
+  return(result);
+};
+
+//Write two functions set_counter & get_counter .
+//  set_counter sets the value of counter to n.
+//  get_counter returns the current value of counter.
+//set_counter(n : Nat) -> async ()
+//get_counter() -> async Nat
+public query func get_counter() : async Nat {
+  return counter;
+};
+
+public func set_counter (n1 : Nat) : async () {
+   counter := n1;
+};
+
+//Write a function test_divide that takes two natural numbers n and m and returns a boolean indicating if n divides m.
+//test_divide(n: Nat, m : Nat) -> async Bool
+public query func test_divide(n1: Nat, n2: Nat) : async Bool {
+  if( n1%n2==0 ) {return (true);}
+    else return(false);
+};
+
+
+
+//Write a function is_even that takes a natural number n and returns a boolean indicating if n is even.
+//is_even(n : Nat) -> async Bool 
+public query func is_even(n1: Nat) : async Bool {
+  if( n1%2==0 ) {return (true);}
+    else return(false);
+};
+
+}
